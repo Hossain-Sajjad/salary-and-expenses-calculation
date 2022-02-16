@@ -1,13 +1,16 @@
 function getInputValue(id){
-    const inputValue = document.getElementById('income-field').value;
+    const inputValue = document.getElementById(id + '-field').value;
     return inputValue;
 }
 
 document.getElementById('calculate-button').addEventListener('click', function(){
-    const incomeValue = getInputValue('income-field');
-    const foodValue = getInputValue('income-field');
-    const rentValue = getInputValue('income-field');
-    const clothesValue = getInputValue('income-field');
+    const incomeValue = getInputValue('income');
+    const foodValue = getInputValue('food');
+    const rentValue = getInputValue('rent');
+    const clothesValue = getInputValue('clothes');
+    const totalExpenses = parseInt(foodValue) + parseInt(rentValue) + parseInt(clothesValue);
+    
+    console.log(totalExpenses);
 })
 
 
