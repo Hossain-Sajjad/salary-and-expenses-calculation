@@ -14,6 +14,14 @@ document.getElementById('calculate-button').addEventListener('click', function()
     document.getElementById('total-expenses').innerText = totalExpenses;
     document.getElementById('balance').innerText = parseInt(incomeValue) - totalExpenses;
 
+    if( isNaN(incomeValue) || isNaN(foodValue) || isNaN(rentValue) || isNaN(clothesValue) || incomeValue == '' || foodValue == '' || rentValue == '' || clothesValue == '' ){
+        document.getElementById('wrong-input-error').style.display = 'block';
+        document.getElementById('calculation-result').style.display = 'none';
+    }
+    if( incomeValue < 0 || foodValue < 0 || rentValue < 0 || clothesValue < 0){
+        document.getElementById('negative-input-error').style.display = 'block';
+        document.getElementById('calculation-result').style.display = 'none';
+    }
     
 })
 

@@ -1,0 +1,9 @@
+.calculation-section{
+    background-color: #f5f5f5;
+}
+#wrong-input-error{
+    display: none;
+}
+#negative-input-error{
+    display: none;
+}
