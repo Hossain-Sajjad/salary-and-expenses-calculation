@@ -51,9 +51,6 @@ document.getElementById('save-button').addEventListener('click', function(){
         document.getElementById('balance-error').style.display = 'block';
         document.getElementById('saving-result').style.display = 'none';
     }
-
-    console.log(balance);
-    console.log(savingAmount);
 });
 
 
