@@ -7,3 +7,12 @@
 #negative-input-error{
     display: none;
 }
+#balance-error{
+    display: none;
+}
+#unsuficient-balance-error{
+    display: none;
+}
+#saving-input-error{
+    display: none;
+}

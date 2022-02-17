@@ -14,6 +14,7 @@ document.getElementById('calculate-button').addEventListener('click', function()
     document.getElementById('total-expenses').innerText = totalExpenses;
     document.getElementById('balance').innerText = parseInt(incomeValue) - totalExpenses;
 
+    // input validation
     if( isNaN(incomeValue) || isNaN(foodValue) || isNaN(rentValue) || isNaN(clothesValue) || incomeValue == '' || foodValue == '' || rentValue == '' || clothesValue == '' ){
         document.getElementById('wrong-input-error').style.display = 'block';
         document.getElementById('calculation-result').style.display = 'none';
@@ -23,11 +24,15 @@ document.getElementById('calculate-button').addEventListener('click', function()
         document.getElementById('calculation-result').style.display = 'none';
     }
     
+    // unsuficiant balance error 
+    if(incomeValue < totalExpenses){
+        document.getElementById('unsuficient-balance-error').style.display = 'block';
+        document.getElementById('balance-part').style.display = 'none';
+    }
 })
 
 // save button handler
 document.getElementById('save-button').addEventListener('click', function(){
-    console.log('clicked');
     const incomeValue = getInputValue('income');
     const savingValue = getInputValue('saving');
     document.getElementById('saving-amount').innerText = (parseInt(incomeValue) * parseInt(savingValue)) / 100;
@@ -35,6 +40,20 @@ document.getElementById('save-button').addEventListener('click', function(){
     const balance = document.getElementById('balance').innerText;
     const savingAmount = document.getElementById('saving-amount').innerText;
     document.getElementById('remaining-balance').innerText = parseInt(balance) - parseInt(savingAmount);
+
+    // balance error 
+    if(balance < savingAmount){
+        document.getElementById('balance-error').style.display = 'block';
+        document.getElementById('saving-result').style.display = 'none';
+    }
+
+    // input validation
+    if(isNaN(savingValue) || savingValue < 0){
+        document.getElementById('saving-result').style.display = 'none';
+        document.getElementById('balance-error').style.display = 'none';
+        document.getElementById('saving-input-error').style.display = 'block';
+    }
 });
+
 
 

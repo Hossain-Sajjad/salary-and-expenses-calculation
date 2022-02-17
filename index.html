@@ -14,60 +14,83 @@
 </head>
 
 <body>
+    <!-- heading added -->
+    <h1 class="text-center my-5">Salary And Expenses Calculation</h1>
+
+    <!-- main section -->
     <section class="container">
-        <h1 class="text-center mt-5">Salary And Expenses Calculation</h1>
-        <div class="row my-4">
-            <div class="col-lg-6 calculation-section">
-                <img src="images/photo-1601597110547-78516f198ce4.jpg" height="100%" alt="">
+        <div class="row">
+
+            <!-- img added -->
+            <div class="col-lg-6">
+                <img src="images/photo-1601597110547-78516f198ce4.jpg" class="img-fluid" alt="">
             </div>
+
+            <!-- calculation section -->
             <div class="col-lg-6 calculation-section">
-                <h3 class="text-center mt-4">Income</h3>
-                <div class="d-flex justify-content-center mt-3">
-                    <p class="fw-bolder">Income :</p>
-                    <input id="income-field" type="text" class="bg-secondary bg-opacity-10 border border-none rounded ms-3">
-                </div>
-                <h3 class="text-center mt-4">Expenses</h3>
-                <div class="d-flex justify-content-center mt-3">
-                    <p class="fw-bolder">Food :</p>
-                    <input id="food-field" type="text" class="bg-secondary bg-opacity-10 border border-none rounded ms-3">
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <p class="fw-bolder">Rent :</p>
-                    <input id="rent-field" type="text" class="bg-secondary bg-opacity-10 border border-none rounded ms-3">
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <p class="fw-bolder">Clothes :</p>
-                    <input id="clothes-field" type="text" class="bg-secondary bg-opacity-10 border border-none rounded ms-3">
-                </div>
-                <div class="d-flex justify-content-center mt-4">
-                    <button id="calculate-button" type="button" class="btn btn-primary btn-lg">Calculate</button>
-                </div>
-                <div id="calculation-result">
-                    <div>
-                        <h3 class="text-center mt-4">Total Expenses : <span id="total-expenses"></span></h3>
+                <div class="pt-3">
+                    <h3 class="text-center">Income</h3>
+                    <div class="d-flex justify-content-center my-4">
+                        <p class="fw-bolder">Income :</p>
+                        <input id="income-field" type="text" class="bg-secondary bg-opacity-10 border border-none rounded ms-3">
                     </div>
-                    <div>
-                        <h3 class="text-center mt-4">Balance : <span id="balance"></span></h3>
+                    <h3 class="text-center">Expenses</h3>
+                    <div class="d-flex justify-content-center my-4">
+                        <p class="fw-bolder">Food :</p>
+                        <input id="food-field" type="text" class="bg-secondary bg-opacity-10 border border-none rounded ms-3">
                     </div>
-                </div>
-                <div class="d-flex justify-content-center mt-4">
-                    <p id="wrong-input-error">Please Enter a valid input</p>
-                </div>
-                <div class="d-flex justify-content-center mt-4">
-                    <p id="negative-input-error">Please Enter a positive input</p>
-                </div>
-                <div class="d-flex justify-content-center mt-4">
-                    <p class="fw-bolder">Save :</p>
-                    <input id="saving-field" type="text" class="bg-secondary bg-opacity-10 border border-none rounded ms-3">
-                    <p class="fw-bolder ms-3">%</p>
-                    <button id="save-button" type="button" class="btn btn-primary btn-lg ms-3">Save</button>
-                </div>
-                <div>
-                    <div>
-                        <h3 class="text-center mt-4">Saving Amount : <span id="saving-amount"></span></h3>
+                    <div class="d-flex justify-content-center my-2">
+                        <p class="fw-bolder">Rent :</p>
+                        <input id="rent-field" type="text" class="bg-secondary bg-opacity-10 border border-none rounded ms-3">
                     </div>
-                    <div>
-                        <h3 class="text-center mt-4">Remaining Balance : <span id="remaining-balance"></span></h3>
+                    <div class="d-flex justify-content-center my-2">
+                        <p class="fw-bolder">Clothes :</p>
+                        <input id="clothes-field" type="text" class="bg-secondary bg-opacity-10 border border-none rounded ms-3">
+                    </div>
+                    <div class="d-flex justify-content-center my-4">
+                        <button id="calculate-button" type="button" class="btn btn-primary btn-lg">Calculate</button>
+                    </div>
+                    <!-- calculation result -->
+                    <div id="calculation-result">
+                        <div>
+                            <h3 class="text-center">Total Expenses : <span id="total-expenses"></span></h3>
+                        </div>
+                        <div>
+                            <h3 id="balance-part" class="text-center">Balance : <span id="balance"></span></h3>
+                        </div>
+                    </div>
+                    <!-- error massages -->
+                    <div class="d-flex justify-content-center">
+                        <p id="unsuficient-balance-error">Oops! You spent very much.Now you don't have any Balance</p>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <p id="wrong-input-error">Please Enter a valid input</p>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <p id="negative-input-error">Please Enter a positive input</p>
+                    </div>
+    
+                    <!-- saving section  -->
+                    <div class="d-flex justify-content-center my-2">
+                        <p class="fw-bolder">Save :</p>
+                        <input id="saving-field" type="text" class="bg-secondary bg-opacity-10 border border-none rounded ms-3">
+                        <p class="fw-bolder ms-3">%</p>
+                        <button id="save-button" type="button" class="btn btn-primary btn-lg ms-3">Save</button>
+                    </div>
+                    <div id="saving-result">
+                        <div>
+                            <h3 class="text-center">Saving Amount : <span id="saving-amount"></span></h3>
+                        </div>
+                        <div>
+                            <h3 class="text-center">Remaining Balance : <span id="remaining-balance"></span></h3>
+                        </div>
+                    </div>
+                    <!-- error massages -->
+                    <div class="d-flex justify-content-center">
+                        <p id="balance-error">You don't have suficiant balance to save.</p>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <p id="saving-input-error">Please enter a valid input.</p>
                     </div>
                 </div>
             </div>
