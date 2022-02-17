@@ -6,26 +6,24 @@ function getInputValue(id){
 
 // clculate button handler
 document.getElementById('calculate-button').addEventListener('click', function(){
-    const incomeValue = getInputValue('income');
-    const foodValue = getInputValue('food');
-    const rentValue = getInputValue('rent');
-    const clothesValue = getInputValue('clothes');
-    const totalExpenses = parseInt(foodValue) + parseInt(rentValue) + parseInt(clothesValue);
+    const incomeValue = parseInt(getInputValue('income'));
+    const foodValue = parseInt(getInputValue('food'));
+    const rentValue = parseInt(getInputValue('rent'));
+    const clothesValue = parseInt(getInputValue('clothes'));
+    const totalExpenses = foodValue + rentValue + clothesValue;
     document.getElementById('total-expenses').innerText = totalExpenses;
-    document.getElementById('balance').innerText = parseInt(incomeValue) - totalExpenses;
+    document.getElementById('balance').innerText = incomeValue - totalExpenses;
 
     // input validation
     if( isNaN(incomeValue) || isNaN(foodValue) || isNaN(rentValue) || isNaN(clothesValue) || incomeValue == '' || foodValue == '' || rentValue == '' || clothesValue == '' ){
         document.getElementById('wrong-input-error').style.display = 'block';
         document.getElementById('calculation-result').style.display = 'none';
     }
-    if( incomeValue < 0 || foodValue < 0 || rentValue < 0 || clothesValue < 0){
+    else if( incomeValue < 0 || foodValue < 0 || rentValue < 0 || clothesValue < 0){
         document.getElementById('negative-input-error').style.display = 'block';
         document.getElementById('calculation-result').style.display = 'none';
     }
-    
-    // unsuficiant balance error 
-    if(incomeValue < totalExpenses){
+    else if(incomeValue < totalExpenses){
         document.getElementById('unsuficient-balance-error').style.display = 'block';
         document.getElementById('balance-part').style.display = 'none';
     }
@@ -37,15 +35,9 @@ document.getElementById('save-button').addEventListener('click', function(){
     const savingValue = getInputValue('saving');
     document.getElementById('saving-amount').innerText = (parseInt(incomeValue) * parseInt(savingValue)) / 100;
 
-    const balance = document.getElementById('balance').innerText;
-    const savingAmount = document.getElementById('saving-amount').innerText;
-    document.getElementById('remaining-balance').innerText = parseInt(balance) - parseInt(savingAmount);
-
-    // balance error 
-    if(balance < savingAmount){
-        document.getElementById('balance-error').style.display = 'block';
-        document.getElementById('saving-result').style.display = 'none';
-    }
+    const balance = parseInt(document.getElementById('balance').innerText);
+    const savingAmount = parseInt(document.getElementById('saving-amount').innerText);
+    document.getElementById('remaining-balance').innerText = balance - savingAmount;
 
     // input validation
     if(isNaN(savingValue) || savingValue < 0){
@@ -53,6 +45,15 @@ document.getElementById('save-button').addEventListener('click', function(){
         document.getElementById('balance-error').style.display = 'none';
         document.getElementById('saving-input-error').style.display = 'block';
     }
+
+    // balance error 
+    if(balance < savingAmount){
+        document.getElementById('balance-error').style.display = 'block';
+        document.getElementById('saving-result').style.display = 'none';
+    }
+
+    console.log(balance);
+    console.log(savingAmount);
 });
 
 
